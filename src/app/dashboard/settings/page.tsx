@@ -73,11 +73,18 @@ export default function SettingsPage() {
         text: 'Profile updated successfully!', 
         type: 'success' 
       })
-    } catch (error: any) {
-      setMessage({ 
-        text: error.message || 'Failed to update profile', 
-        type: 'error' 
-      })
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setMessage({ 
+          text: error.message || 'Failed to update profile', 
+          type: 'error' 
+        })
+      } else {
+        setMessage({ 
+          text: 'Failed to update profile', 
+          type: 'error' 
+        })
+      }
     } finally {
       setUpdating(false)
     }

@@ -37,8 +37,9 @@ export default function SigninPage() {
       
       // Redirect to dashboard
       router.push('/dashboard')
-    } catch (err: any) {
-      setError(err.message || 'Failed to sign in. Please check your credentials.')
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to sign in';
+      setError(errorMessage || 'Failed to sign in. Please check your credentials.')
       console.error('Sign in error:', err)
     } finally {
       setIsLoading(false)
@@ -100,7 +101,7 @@ export default function SigninPage() {
 
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/signup" className="text-blue-600 hover:underline">
               Sign up
             </Link>

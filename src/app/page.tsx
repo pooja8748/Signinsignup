@@ -13,7 +13,7 @@ export default function HomePage() {
     if (isLoggedIn) {
       router.push('/dashboard')
     }
-  }, [])
+  }, [router])
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-4 text-center bg-gray-100 font-sans">

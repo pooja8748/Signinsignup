@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { loginUser } from "@/lib/users";
-import type { User } from "@/lib/users";
 
 const handler = NextAuth({
   providers: [
